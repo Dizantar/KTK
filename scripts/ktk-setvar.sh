@@ -45,3 +45,4 @@ done
 echo "export RHOST=$RHOST" > /tmp/ktk-vars.txt
 echo "export LHOST=$LHOST" >> /tmp/ktk-vars.txt
 
+source /tmp/ktk-vars.txt
