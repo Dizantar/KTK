@@ -13,9 +13,8 @@ fi
 nmap -T4 -Pn -p- $1 -oN nmap.stage1.txt
 if [[ -f nmap.stage1.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage1.txt &  
   fi
 else
@@ -32,9 +31,8 @@ echo "Stage 2 ports: $PORTLIST"
 nmap -Pn -p $PORTLIST -A -T4 --script=default $1 -oN nmap.stage2.txt
 if [[ -f nmap.stage2.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage2.txt &
   fi
 fi
@@ -44,9 +42,8 @@ touch nmap.stage3.txt
 sudo nmap -Pn -sU -T4 --top-ports 1000 $1 -oN nmap.stage3.txt
 if [[ -f nmap.stage3.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage3.txt &
   fi
 else
@@ -64,9 +61,8 @@ echo "Stage 4 ports: $PORTLIST"
 sudo nmap -Pn -sU -p $PORTLIST -A -T4 --script=default $1 -oN nmap.stage4.txt
 if [[ -f nmap.stage4.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage4.txt &
   fi
 fi
@@ -83,9 +79,8 @@ touch nmap.stage5.txt
 sudo nmap -Pn -sU -T4 -p- -T4 $1 -oN nmap.stage5.txt
 if [[ -f nmap.stage5.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage5.txt &
   fi
 else
@@ -103,9 +98,8 @@ echo "Stage 6 ports: $PORTLIST"
 sudo nmap -Pn -sU -p $PORTLIST -A -T4 --script=default $1 -oN nmap.stage6.txt
 if [[ -f nmap.stage6.txt ]]
 then
-  if [[ "$*" == *--nogui* ]]
+  if [[ ! "$*" == *--nogui* ]]
   then
-  else
     mousepad nmap.stage6.txt &
   fi
 fi
