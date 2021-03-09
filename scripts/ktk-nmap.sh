@@ -68,9 +68,8 @@ then
 fi
 
 # Exit if not doing a full UDP scan
-if [[ "$*" == *--fulludp* ]]
+if [[ ! "$*" == *--fulludp* ]]
 then
-else
   exit 0  
 fi
 
